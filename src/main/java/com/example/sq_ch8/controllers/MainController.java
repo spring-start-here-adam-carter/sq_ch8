@@ -10,9 +10,10 @@ public class MainController {
 
     @RequestMapping("/home")
     public String home(
-            Model page,
-            @RequestParam String color) {
-        page.addAttribute("username", "Katy");
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String color,
+            Model page) {
+        page.addAttribute("username", name);
         page.addAttribute("color", color);
         return "home.html";
     }
